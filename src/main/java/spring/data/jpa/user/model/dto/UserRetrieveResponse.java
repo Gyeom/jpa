@@ -1,7 +1,8 @@
-package spring.data.jpa.user.model;
+package spring.data.jpa.user.model.dto;
 
 import lombok.Value;
-import spring.data.jpa.order.entity.OrderRetrieveResponse;
+import spring.data.jpa.order.model.dto.OrderRetrieveResponse;
+import spring.data.jpa.user.model.entity.User;
 
 import java.time.LocalDateTime;
 import java.util.List;

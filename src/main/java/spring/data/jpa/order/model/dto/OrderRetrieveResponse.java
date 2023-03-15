@@ -1,7 +1,7 @@
-package spring.data.jpa.order.entity;
+package spring.data.jpa.order.model.dto;
 
 import lombok.Value;
-import spring.data.jpa.order.model.Order;
+import spring.data.jpa.order.model.entity.Order;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

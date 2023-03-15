@@ -1,15 +1,16 @@
-package spring.data.jpa.order.model;
+package spring.data.jpa.order.model.dto;
 
-import lombok.Getter;
-import spring.data.jpa.user.model.User;
+import lombok.Value;
+import spring.data.jpa.order.model.entity.Order;
+import spring.data.jpa.user.model.entity.User;
 
 import java.math.BigDecimal;
 
-@Getter
+@Value
 public class OrderCreateRequest {
 
-    private final String productName;
-    private final BigDecimal price;
+    String productName;
+    BigDecimal price;
 
     public OrderCreateRequest(String productName, BigDecimal price) {
         this.productName = productName;

@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import spring.data.jpa.order.model.Order;
+import spring.data.jpa.order.model.entity.Order;
 
 import java.sql.PreparedStatement;
 import java.util.Date;

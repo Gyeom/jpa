@@ -9,12 +9,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import spring.data.jpa.order.model.OrderCreateRequest;
-import spring.data.jpa.user.model.UserCreateRequest;
+import spring.data.jpa.order.model.dto.OrderCreateRequest;
+import spring.data.jpa.user.model.dto.UserCreateRequest;
 
 import java.math.BigDecimal;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static spring.data.jpa.fixture.Fixture.createOrderCreateRequest;
+import static spring.data.jpa.fixture.Fixture.createUserCreateRequest;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -24,17 +26,17 @@ class BaseControllerTest {
     protected MockMvc mockMvc;
 
     @Autowired
-    private ObjectMapper objectMapper;
+    protected ObjectMapper objectMapper;
 
     @BeforeEach
     void setup() throws Exception {
-        createUser(new UserCreateRequest("daegyeom.kim", "daegyeom.kim@naver.com"));
-        createUser(new UserCreateRequest("semi.park", "semi.park@naver.com"));
-        createOrder(new OrderCreateRequest("사과", BigDecimal.valueOf(1000)));
-        createOrder(new OrderCreateRequest("바나나", BigDecimal.valueOf(1000)));
-        createOrder(new OrderCreateRequest("파인애플", BigDecimal.valueOf(1000)));
-        createOrder(new OrderCreateRequest("자두", BigDecimal.valueOf(1000)));
-        createOrder(new OrderCreateRequest("복숭아", BigDecimal.valueOf(1000)));
+        createUser(createUserCreateRequest("daegyeom.kim", "daegyeom.kim@naver.com"));
+        createUser(createUserCreateRequest("semi.park", "semi.park@naver.com"));
+        createOrder(createOrderCreateRequest("사과", BigDecimal.valueOf(1000)));
+        createOrder(createOrderCreateRequest("바나나", BigDecimal.valueOf(1000)));
+        createOrder(createOrderCreateRequest("파인애플", BigDecimal.valueOf(1000)));
+        createOrder(createOrderCreateRequest("자두", BigDecimal.valueOf(1000)));
+        createOrder(createOrderCreateRequest("복숭아", BigDecimal.valueOf(1000)));
     }
 
     private void createUser(UserCreateRequest userCreateRequest) throws Exception {

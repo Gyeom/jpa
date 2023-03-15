@@ -5,10 +5,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spring.data.jpa.ResourceNotFoundException;
 import spring.data.jpa.order.repository.UserJdbcRepository;
-import spring.data.jpa.user.model.User;
-import spring.data.jpa.user.model.UserCreateRequest;
-import spring.data.jpa.user.model.UserOrderRetrieveResponse;
-import spring.data.jpa.user.model.UserRetrieveResponse;
+import spring.data.jpa.user.model.dto.UserUpdateRequest;
+import spring.data.jpa.user.model.entity.User;
+import spring.data.jpa.user.model.dto.UserCreateRequest;
+import spring.data.jpa.user.model.dto.UserOrderRetrieveResponse;
+import spring.data.jpa.user.model.dto.UserRetrieveResponse;
 import spring.data.jpa.user.repository.UserRepository;
 
 import java.util.List;
@@ -42,5 +43,15 @@ public class UserService {
 
     public List<UserOrderRetrieveResponse> findUserWithOrders(final Long userId) {
         return userJdbcRepository.findUserWithOrders(userId);
+    }
+
+    public UserRetrieveResponse updateUser(final Long id, final UserUpdateRequest request) {
+        User user = userRepository.findById(id)
+                        .orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
+
+        user.changeName(request.getName());
+        user.changeEmail(request.getEmail());
+
+        return UserRetrieveResponse.from(user);
     }
 }

@@ -3,8 +3,8 @@ package spring.data.jpa.order.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import spring.data.jpa.order.entity.OrderRetrieveResponse;
-import spring.data.jpa.order.model.OrderCreateRequest;
+import spring.data.jpa.order.model.dto.OrderRetrieveResponse;
+import spring.data.jpa.order.model.dto.OrderCreateRequest;
 import spring.data.jpa.order.service.OrderService;
 
 @RestController

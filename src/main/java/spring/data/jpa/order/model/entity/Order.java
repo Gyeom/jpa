@@ -1,7 +1,7 @@
-package spring.data.jpa.order.model;
+package spring.data.jpa.order.model.entity;
 
 import lombok.Getter;
-import spring.data.jpa.user.model.User;
+import spring.data.jpa.user.model.entity.User;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

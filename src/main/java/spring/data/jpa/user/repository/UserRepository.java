@@ -3,7 +3,7 @@ package spring.data.jpa.user.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import spring.data.jpa.user.model.User;
+import spring.data.jpa.user.model.entity.User;
 
 import java.util.List;
 

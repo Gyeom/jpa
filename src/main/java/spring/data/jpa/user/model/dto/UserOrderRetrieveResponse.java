@@ -1,4 +1,4 @@
-package spring.data.jpa.user.model;
+package spring.data.jpa.user.model.dto;
 
 import lombok.Value;
 

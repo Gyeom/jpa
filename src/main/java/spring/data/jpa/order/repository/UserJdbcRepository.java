@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import spring.data.jpa.user.model.UserOrderRetrieveResponse;
+import spring.data.jpa.user.model.dto.UserOrderRetrieveResponse;
 
 import java.util.List;
 

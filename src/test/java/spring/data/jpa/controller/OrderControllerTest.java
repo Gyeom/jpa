@@ -24,6 +24,14 @@ class OrderControllerTest extends BaseControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    void updateOrders() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.post("/orders/test/bulk/insert")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andDo(print());
+    }
 }
 
 

@@ -1,7 +1,8 @@
-package spring.data.jpa.user.model;
+package spring.data.jpa.user.model.entity;
 
 import lombok.Getter;
-import spring.data.jpa.order.model.Order;
+import spring.data.jpa.order.model.entity.Order;
+import spring.data.jpa.user.model.vo.Email;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -39,10 +40,17 @@ public class User {
     }
 
     protected User() {
-
     }
 
     public String getEmail() {
         return this.email.value();
+    }
+
+    public void changeName(final String name) {
+        this.name = name;
+    }
+
+    public void changeEmail(final String email) {
+        this.email.change(email);
     }
 }

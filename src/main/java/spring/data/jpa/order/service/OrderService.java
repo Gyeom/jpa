@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spring.data.jpa.ResourceNotFoundException;
-import spring.data.jpa.order.entity.OrderRetrieveResponse;
-import spring.data.jpa.order.model.Order;
-import spring.data.jpa.order.model.OrderCreateRequest;
+import spring.data.jpa.order.model.dto.OrderRetrieveResponse;
+import spring.data.jpa.order.model.entity.Order;
+import spring.data.jpa.order.model.dto.OrderCreateRequest;
 import spring.data.jpa.order.repository.OrderRepository;
-import spring.data.jpa.user.model.User;
+import spring.data.jpa.user.model.entity.User;
 import spring.data.jpa.order.repository.OrderBulkRepository;
 import spring.data.jpa.user.repository.UserRepository;
 
