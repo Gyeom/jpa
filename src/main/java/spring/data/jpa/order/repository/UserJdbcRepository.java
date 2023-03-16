@@ -8,6 +8,8 @@ import spring.data.jpa.user.model.dto.UserOrderRetrieveResponse;
 
 import java.util.List;
 
+import static spring.data.jpa.order.sql.UserSql.SELECT_USER_WITH_ORDERS;
+
 @Repository
 @RequiredArgsConstructor
 public class UserJdbcRepository {
@@ -15,14 +17,12 @@ public class UserJdbcRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public List<UserOrderRetrieveResponse> findUserWithOrders(final Long userId) {
-        String sql = "SELECT u.id as user_id, u.name as user_name, u.email as user_email, u.created_at as user_created_at, " +
-                "o.id as order_id, o.product_name, o.price, o.created_at as order_created_at " +
-                "FROM users u " +
-                "LEFT JOIN orders o ON u.id = o.user_id " +
-                "WHERE u.id = ?" +
-                "ORDER BY u.id";
+        RowMapper<UserOrderRetrieveResponse> rowMapper = createUserOrderRowMapper();
+        return jdbcTemplate.query(SELECT_USER_WITH_ORDERS, rowMapper, userId);
+    }
 
-        RowMapper<UserOrderRetrieveResponse> rowMapper = (rs, rowNum) ->
+    private RowMapper<UserOrderRetrieveResponse> createUserOrderRowMapper() {
+        return (rs, rowNum) ->
                 new UserOrderRetrieveResponse(
                         rs.getLong("user_id"),
                         rs.getString("user_name"),
@@ -33,7 +33,5 @@ public class UserJdbcRepository {
                         rs.getDouble("price"),
                         rs.getTimestamp("order_created_at").toLocalDateTime()
                 );
-
-        return jdbcTemplate.query(sql, rowMapper, userId);
     }
 }

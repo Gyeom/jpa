@@ -27,7 +27,7 @@ public class User {
     })
     private Email email;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user")
     private final List<Order> orders = new ArrayList<>();
 
     @Column(name = "created_at", nullable = false, updatable = false)

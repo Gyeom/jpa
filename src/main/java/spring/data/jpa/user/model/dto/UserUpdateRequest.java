@@ -1,13 +1,16 @@
 package spring.data.jpa.user.model.dto;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 import spring.data.jpa.user.model.entity.User;
 
-@Value
+@Getter
+@NoArgsConstructor
 public class UserUpdateRequest {
 
-    String name;
-    String email;
+    private String name;
+    private String email;
 
     public UserUpdateRequest(String name, String email) {
         this.name = name;
