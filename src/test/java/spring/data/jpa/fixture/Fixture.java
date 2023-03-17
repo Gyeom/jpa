@@ -15,8 +15,4 @@ public class Fixture {
     public static UserUpdateRequest createUserUpdateRequest(final String name, final String email) {
         return new UserUpdateRequest(name, email);
     }
-
-    public static OrderCreateRequest createOrderCreateRequest(final String product, final BigDecimal price) {
-        return new OrderCreateRequest(product, price);
-    }
 }
